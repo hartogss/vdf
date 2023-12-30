@@ -60,8 +60,8 @@ extern "C" {
     fn __gmpz_abs(rop: mpz_ptr, op: mpz_srcptr);
     fn __gmpz_tdiv_q(q: mpz_ptr, n: mpz_srcptr, d: mpz_srcptr);
     fn __gmpz_tdiv_r(r: mpz_ptr, n: mpz_srcptr, d: mpz_srcptr);
-    fn __gmpz_tdiv_q_ui(q: mpz_ptr, n: mpz_srcptr, d: c_ulong) -> c_ulong;
-    fn __gmpz_tdiv_r_ui(r: mpz_ptr, n: mpz_srcptr, d: c_ulong) -> c_ulong;
+    // fn __gmpz_tdiv_q_ui(q: mpz_ptr, n: mpz_srcptr, d: c_ulong) -> c_ulong;
+    // fn __gmpz_tdiv_r_ui(r: mpz_ptr, n: mpz_srcptr, d: c_ulong) -> c_ulong;
     fn __gmpz_fdiv_r(r: mpz_ptr, n: mpz_srcptr, d: mpz_srcptr);
     fn __gmpz_fdiv_q_2exp(q: mpz_ptr, n: mpz_srcptr, b: mp_bitcnt_t);
     fn __gmpz_mod(r: mpz_ptr, n: mpz_srcptr, d: mpz_srcptr);
@@ -739,10 +739,10 @@ impl_oper!(both i64, c_long, Mul, mul, MulAssign, mul_assign, __gmpz_mul_si);
 impl_oper!(both u64, c_ulong, Mul, mul, MulAssign, mul_assign, __gmpz_mul_ui);
 
 impl_oper!(Div, div, DivAssign, div_assign, __gmpz_tdiv_q);
-impl_oper!(normal u64, c_ulong, Div, div, DivAssign, div_assign, __gmpz_tdiv_q_ui);
+// impl_oper!(normal u64, c_ulong, Div, div, DivAssign, div_assign, __gmpz_tdiv_q_ui);
 
 impl_oper!(Rem, rem, RemAssign, rem_assign, __gmpz_tdiv_r);
-impl_oper!(normal u64, c_ulong, Rem, rem, RemAssign, rem_assign, __gmpz_tdiv_r_ui);
+// impl_oper!(normal u64, c_ulong, Rem, rem, RemAssign, rem_assign, __gmpz_tdiv_r_ui);
 
 impl<'b> Neg for &'b Mpz {
     type Output = Mpz;
