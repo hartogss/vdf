@@ -89,7 +89,7 @@ extern "C" {
     fn __gmpz_import(rop: mpz_ptr, count: size_t, order: c_int, size: size_t,
                      endian: c_int, nails: size_t, op: *const c_void);
     fn __gmpz_export(rop: *mut c_void, countp: *mut size_t, order: c_int, size: size_t, 
-                     endian: c_int, nails: size_t, op: mpz_srcptr);
+                     endian: c_int, nails: size_t, op: mpz_srcptr) -> *mut c_void;
     fn __gmpz_root(rop: mpz_ptr, op: mpz_srcptr, n: c_ulong) -> c_int;
     fn __gmpz_sqrt(rop: mpz_ptr, op: mpz_srcptr);
     fn __gmpz_millerrabin(n: mpz_srcptr, reps: c_int) -> c_int;
